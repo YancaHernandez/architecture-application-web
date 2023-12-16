@@ -1,0 +1,14 @@
+<div id="container">
+  <h1>Lista de productos</h1>
+  @if(showFormEdit){
+  <edit-product (edit)="edit($event)" [product]="productToEdit" />
+  }@else{
+  <create-product (uploadProducts)="uploadProducts()" (save)="save($event)" />
+  }
+  <table-products
+    (deleteEvent)="delete($event)"
+    (editEvent)="editShow($event)"
+    [showFormEdit]="showFormEdit"
+    [products]="products"
+  />
+</div>

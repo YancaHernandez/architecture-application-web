@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Crear nuevo proyecto</h2>
+  <form class="example-form">
+    <div class="example-full-width">
+      <label>Nombre</label>
+      <input [formControl]="name" />
+    </div>
+
+    <div class="example-full-width">
+      <label>Descripcion</label>
+      <input [formControl]="description" />
+    </div>
+
+    <div class="example-full-width">
+      <label>Precio</label>
+      <input [formControl]="price" />
+    </div>
+    <div class="example-full-width">
+      <label>Stock</label>
+      <input [formControl]="stock" />
+    </div>
+  </form>
+  <button class="bntGuardar" (click)="guardar()">Registrar</button>
+</div>

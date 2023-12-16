@@ -1,0 +1,39 @@
+<table class="products-table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (product of products; track product.id) {
+    <tr>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.price | currency }}</td>
+      <td>{{ product.stock }}</td>
+      <td>
+        <button
+          [disabled]="showFormEdit"
+          class="btn-edit"
+          (click)="edit(product)"
+        >
+          Editar
+        </button>
+        <button
+          [disabled]="showFormEdit"
+          class="btn-delete"
+          (click)="delete(product.id)"
+        >
+          Eliminar
+        </button>
+      </td>
+    </tr>
+    } @empty {
+    <li>No tiene productos registrados.</li>
+    }
+  </tbody>
+</table>

@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Editar proyecto</h2>
+  <form class="example-form">
+    <div class="example-full-width">
+      <label>Nombre</label>
+      <input [formControl]="name" />
+    </div>
+
+    <div class="example-full-width">
+      <label>Descripcion</label>
+      <input [formControl]="description" />
+    </div>
+
+    <div class="example-full-width">
+      <label>Precio</label>
+      <input [formControl]="price" />
+    </div>
+    <div class="example-full-width">
+      <label>Stock</label>
+      <input [formControl]="stock" />
+    </div>
+  </form>
+  <div class="container-btns">
+    <button class="bntGuardar" (click)="editar()">Editar</button>
+    <button class="bntCancelar" (click)="uploadProducts.emit()">
+      Cancelar
+    </button>
+  </div>
+</div>

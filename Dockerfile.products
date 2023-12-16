@@ -1,0 +1,13 @@
+# Stage 1: Compilar y construir angular
+FROM node:18 as build
+WORKDIR /app
+COPY angular.json tsconfig.json package.json package-lock.json* /app/
+RUN npm install
+COPY ./projects/mf-products /app/projects/mf-products
+RUN npm run build mf-products
+
+# Stage 2: Servir la aplicación desde nginx
+FROM nginx:alpine
+COPY --from=build /app/dist/mf-products /usr/share/nginx/html
+EXPOSE 4001
+CMD ["nginx", "-g", "daemon off;"]
